@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package delivery;
+
+option go_package = "genprotos/";
+
+// import "food-delivery-protos/void.proto";
+// import "void.proto";
+
+
+message ProductRatingUReq {
+    string product_id = 1;
+    float rate = 2;
+}
+
+message ProductCountUReq {
+    string product_id = 1;
+    float count = 2;
+}
+
+service ProductService {
+    rpc UpdateRating(ProductRatingUReq) returns (Void);
+    rpc UpdateCount(ProductCountUReq) returns (Void);
+}
