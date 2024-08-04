@@ -75,8 +75,8 @@ service ProductService {
     rpc UpdateRating(ProductRatingUReq) returns (Void);
     rpc UpdateCount(ProductCountUReq) returns (Void);
     rpc Create(ProductCReq) returns (Void);
-    rpc Update(ProductUReq) returns (ProductGRes);
+    rpc Update(ProductUReq) returns (Void);
     rpc Delete(ByID) returns (Void);
     rpc Get(ByID) returns (ProductGRes);
-    rpc GetAll(Void) returns (ProductGARes);
+    rpc GetAll(ProductGAReq) returns (ProductGARes);
 }
