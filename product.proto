@@ -58,6 +58,14 @@ message ProductGRes {
     map<string, string> additional_details = 11;
 }
   
+message ProductGAReq {
+    string category = 1;
+    string count = 2;
+    string rating = 3;
+    string seller = 4;
+    Pagination pagination = 5;
+}
+
 message ProductGARes {
     repeated ProductGRes products = 1;
 }
