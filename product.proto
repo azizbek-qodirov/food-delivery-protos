@@ -23,23 +23,27 @@ message ProductCReq {
     double count = 3;
     string description = 4;
     string img_url = 5;
-    float size = 6;
-    float weight = 7;
-    float rating = 8;
-    string seller = 9;
-    map<string, string> additional_details = 10;
+    float weight = 6;
+    string seller = 7;
+    map<string, string> additional_details = 8;
+}
+
+message ProductCReqForSwagger {
+    string name = 1;
+    string category = 2;
+    double count = 3;
+    string description = 4;
+    float weight = 5;
+    string seller = 6;
+    map<string, string> additional_details = 7;
 }
   
 message ProductUReq {
     string id = 1;
     string name = 2;
     string category = 3;
-    double count = 4;
     string description = 5;
-    string img_url = 6;
-    float size = 7;
     float weight = 8;
-    float rating = 9;
     string seller = 10;
     map<string, string> additional_details = 11;
 }
@@ -51,7 +55,6 @@ message ProductGRes {
     double count = 4;
     string description = 5;
     string img_url = 6;
-    float size = 7;
     float weight = 8;
     float rating = 9;
     string seller = 10;
@@ -69,9 +72,14 @@ message ProductGAReq {
 message ProductGARes {
     repeated ProductGRes products = 1;
 }
-  
+
+message ProductImageUReq{
+    string id = 1;
+    string img_url = 2;
+}
 
 service ProductService {
+    rpc UpdateImg(ProductImageUReq) returns (Void);
     rpc UpdateRating(ProductRatingUReq) returns (Void);
     rpc UpdateCount(ProductCountUReq) returns (Void);
     rpc Create(ProductCReq) returns (Void);
