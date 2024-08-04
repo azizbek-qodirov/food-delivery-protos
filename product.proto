@@ -4,8 +4,8 @@ package delivery;
 
 option go_package = "genprotos/";
 
-import "food-delivery-protos/void.proto";
-// import "void.proto";
+// import "food-delivery-protos/void.proto";
+import "void.proto";
 
 
 message ProductRatingUReq {
