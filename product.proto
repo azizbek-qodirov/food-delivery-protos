@@ -17,8 +17,58 @@ message ProductCountUReq {
     string product_id = 1;
     float count = 2;
 }
+message ProductCReq {
+    string name = 1;
+    string category = 2;
+    double count = 3;
+    string description = 4;
+    string img_url = 5;
+    float size = 6;
+    float weight = 7;
+    float rating = 8;
+    string seller = 9;
+    map<string, string> additional_details = 10;
+}
+  
+message ProductUReq {
+    string id = 1;
+    string name = 2;
+    string category = 3;
+    double count = 4;
+    string description = 5;
+    string img_url = 6;
+    float size = 7;
+    float weight = 8;
+    float rating = 9;
+    string seller = 10;
+    map<string, string> additional_details = 11;
+}
+  
+message ProductGRes {
+    string id = 1;
+    string name = 2;
+    string category = 3;
+    double count = 4;
+    string description = 5;
+    string img_url = 6;
+    float size = 7;
+    float weight = 8;
+    float rating = 9;
+    string seller = 10;
+    map<string, string> additional_details = 11;
+}
+  
+message ProductGARes {
+    repeated ProductGRes products = 1;
+}
+  
 
 service ProductService {
     rpc UpdateRating(ProductRatingUReq) returns (Void);
     rpc UpdateCount(ProductCountUReq) returns (Void);
+    rpc CreateProduct(ProductCReq) returns (Void);
+    rpc UpdateProduct(ProductUReq) returns (ProductGRes);
+    rpc DeleteProduct(ByID) returns (Void);
+    rpc GetProduct(ByID) returns (ProductGRes);
+    rpc GetAllProducts(Void) returns (ProductGARes);
 }
